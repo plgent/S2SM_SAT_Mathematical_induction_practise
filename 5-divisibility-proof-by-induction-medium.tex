@@ -1,0 +1,41 @@
+\question
+
+\begin{parts}
+
+\part[5]
+Prove Proposition~\ref{prop:divisibility-by-25} by mathematical induction.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[5.25in]
+\begin{proof}
+$P(n)$ is: $25 \divides 3^{3n + 1} + 9 \times 2^{n + 3}$, for all $n \in \Z^+$.
+
+\textbf{Basis}: If $n = 1$, then $3^{3 \times 1 + 1} + 9 \times 2^{1 + 3} = 81 + 144 = 225$ and $25 \divides 225$. So, $P(1)$ is true.
+
+\textbf{Inductive step}: If $P(k)$ is true, then there exists some $m \in \Z$ such that $3^{3k + 1} + 9 \times 2^{k + 3} = 25m$, for all $k \geq 1$. Now,
+\begin{align*}
+	3^{3(k + 1) + 1} + 9 \times 2^{(k + 1) + 3} &= 3^{3k + 4} + 9 \times 2^{k + 4} \\
+	&= 3^3 \times 3^{3k + 1} + 9 \times 2^{1} \times 2^{k + 3}
+\end{align*}
+But by hypothesis, $3^{3k + 1} = 25m - 9 \times 2^{k + 3}$, so
+\begin{align*}
+	3^{3(k + 1) + 1} + 9 \times 2^{(k + 1) + 3} &= 3^3 (25m - 9 \times 2^{k + 3}) + 9 \times 2^{1} \times 2^{k + 3} && (\textrm{by hypothesis}) \\
+	&= 25(27 m) + 2^{k + 3} (18 - 3^3 \times 9) \\
+	&= 25(27 m) - 225 \times 2^{k + 3} \\
+	&= 25(27 m - 9 \times 2^{k + 3}),
+\end{align*}
+which is divisible by $25$. Since $P(1)$ is true and $P(k) \implies P(k + 1)$, by the PMI $P(n)$ is true for all $n \in Z^+$.
+\end{proof}
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\part[2]
+Hence, find the last two digits of $4(3^{3001} + 9 \times 2^{1003})$.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[2in]
+Putting $n = 1000$ into the formula in Proposition~\ref{prop:divisibility-by-25} yields $3^{3001} + 9 \times 2^{1003}$. By part (a), this is divisible by $25$, so $4(3^{3001} + 9 \times 2^{1003})$ is divisible by $100$. Hence, the last two digits are $00$.
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\end{parts}

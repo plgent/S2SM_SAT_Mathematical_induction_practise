@@ -1,0 +1,188 @@
+\documentclass[
+    a4paper,
+    12pt,
+    addpoints,
+    % answers,
+    noanswers,
+    hidelinks,
+]
+{exam}
+
+%%% Packages and macros
+
+\usepackage{1-preamble}
+
+%%% Page layout
+
+\input{2-layout}
+
+%%% Subject, paper and conditions
+
+\newcommand{\subject}{Stage 2 Specialist Mathematics}
+\newcommand{\papername}{SAT: Mathematical Induction (Practise)}
+\newcommand{\papernameshort}{Mathematical Induction (Practise)}
+\newcommand{\timelimit}{$\infty$~Minutes}
+\newcommand{\conditions}{Notes, Calculator}
+\newcommand{\paperrules}{\timelimit, \conditions}
+
+\begin{document}
+
+% \input{3-cover-letter}
+
+\begin{questions}
+
+\ifprintanswers
+\else
+\fullwidth{You and your supervisor must \textbf{write your names} to agree that exam conditions were satisfied.}
+\fi
+
+\input{5-divisibility-proof-by-induction-simple}
+
+\triast
+\ifprintanswers
+\else
+\newpage
+\fi
+\uplevel{
+\begin{proposition}
+\label{prop:divisibility-by-25}
+Let $n$ be a positive integer. Then
+\[
+    3^{3n + 1} + 9 \times 2^{n + 3}
+\]
+is divisible by $25$.
+\end{proposition}
+}
+
+\input{5-divisibility-proof-by-induction-medium}
+
+\ifprintanswers
+\threeast
+\else
+\newpage
+\fi
+
+\input{5-polynomials-proof-by-induction-tricky}
+
+\ifprintanswers
+\triast
+\else
+\newpage
+\fi
+\uplevel{
+\begin{proposition}
+\label{prop:lower-triangular-matrix-to-a-power}
+Let $n$ be a positive integer and let $\mat{M} = 
+\begin{pmatrix}
+	1 & 0 \\
+	2 & 1
+\end{pmatrix}
+$ be a matrix. Then
+\[
+    \mat{M}^n = 
+\begin{pmatrix}
+	1 & 0 \\
+	2n & 1
+\end{pmatrix}.
+\]
+\end{proposition}
+}
+
+\input{5-matrices-proof-by-induction-simple}
+
+\ifprintanswers
+\threeast
+\else
+\fi
+
+\input{5-matrices-proof-by-induction-conjecture}
+
+\ifprintanswers
+\triast
+\else
+\fi
+\uplevel{
+\begin{proposition}
+\label{prop:sum-of-reciprocal-odd-products}
+Let $n$ be a positive integer. Then
+\[
+	\sum_{j = 1}^n \frac{1}{(2j - 1)(2j + 1)} = \frac{n}{2n + 1}.
+\]
+\end{proposition}
+}
+
+\input{5-summation-proof-by-induction-easy}
+
+\ifprintanswers
+\triast
+\else
+\newpage
+\fi
+
+\uplevel{
+\begin{theorem}
+\label{thm:trigonometric-induction-identity}
+Let $n$ be a positive integer. Then for all $\cos(x) \neq 0$ we have
+\[
+	1 + \sin^2(x) + \sin^4(x) + \cdots + \sin^{2n}(x) = \frac{1 - \sin^{2(n + 1)}(x)}{\cos^2(x)}.
+\]
+\end{theorem}
+}
+
+\input{5-summation-proof-by-induction-trigonometry}
+
+\threeast
+
+\input{5-recursion-proof-by-induction-medium}
+
+\ifprintanswers
+\triast
+\else
+\fi
+
+\uplevel{
+\begin{proposition}
+\label{prop:some-random-product}
+Let $n$ be a positive integer. Then
+\[
+	\prod_{j = 1}^n \frac{j^2}{j + 1} = \frac{n!}{n + 1}.
+\]
+\end{proposition}
+}
+
+\input{5-product-proof-by-induction-easy}
+
+\ifprintanswers
+\triast
+\else
+\newpage
+\fi
+
+\uplevel{
+\begin{proposition}
+\label{prop:product-of-cosines}
+Let $n$ be a positive integer. Then
+\[
+	\cos(x) \times \cos(2x) \times \cos(4x) \times \cdots \times \cos(2^{n - 1} x) = \frac{\sin(2^n x)}{2^n \sin(x)}.
+\]
+\end{proposition}
+}
+
+\input{5-product-proof-by-induction-trigonometry}
+
+\ifprintanswers
+\threeast
+\else
+\fi
+
+\input{5-inequality-proof-by-induction-medium}
+
+\end{questions}
+
+\vfill
+
+\input{8-grading-table}
+
+\input{9-formulae-sheet}
+
+\end{document}

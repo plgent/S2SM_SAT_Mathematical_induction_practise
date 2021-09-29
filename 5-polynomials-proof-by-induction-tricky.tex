@@ -1,0 +1,47 @@
+\question % Haese Stage 1 Specialist Mathematics?
+
+\begin{parts}
+
+\part[1]
+Show that $x^3 + a^3 = (x + a)(x^2 - ax + a^2)$.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[2in]
+The RHS is
+\begin{align*}
+	(x + a)(x^2 - ax + a^2) &= x^3 - ax^2 + a^2x + ax^2 - a^2x + a^3 \\
+	&= x^3 + a^3,
+\end{align*}
+which is the LHS.
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\part[5]
+Using mathematical induction, and the result from part (a), prove that $x^{2n + 1} + a^{2n + 1}$ is divisible by $x + a$, for all positive integers $n$.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[6.25in]
+\begin{proof}
+$P(n)$ is: $x + a \divides x^{2n + 1} + a^{2n + 1}$, for all $n \in \Z^+$.
+
+\textbf{Basis}: If $n = 1$, then $x^{2 \times 1 + 1} + a^{2 \times 1 + 1} = x^3 + a^3$, and $x + a \divides x^3 + a^3$ by part (a). So, $P(1)$ is true.
+
+\textbf{Inductive step}: Suppose $P(k)$ is true. Then there exists some polynomial $P(x)$, such that
+\[
+	x^{2k + 1} + a^{2k + 1} = (x + a)P(x),
+\]
+for all $k \in \Z^+$. Now
+\begin{align*}
+	x^{2(k + 1) + 1} + a^{2(k + 1) + 1} &= x^{(2k + 1) + 2} + a^{(2k + 1) + 2} \\
+	&= x^2 x^{2k + 1} + a^2 a^{2k + 1} \\
+	&= x^2 x^{2k + 1} + (x^2 + a^2 - x^2) a^{2k + 1} \\
+	&= x^2 (x^{2k + 1} + a^{2k + 1}) + (a^2 - x^2) a^{2k + 1} \\
+	&= x^2 (x + a) P(x) + (a + x)(a - x) a^{2k + 1} && (\textrm{by hypothesis}) \\
+	&= (x + a) (x^2 P(x) +(a - x) a^{2k + 1}),
+\end{align*}
+which is divisible by $x + a$. Since $P(1)$ is true and $P(k) \implies P(k + 1)$, by the PMI $P(n)$ is true for all $n \in \Z^+$.
+\end{proof}
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\end{parts}

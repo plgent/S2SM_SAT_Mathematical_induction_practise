@@ -1,0 +1,51 @@
+\question
+
+\begin{parts}
+
+\part[2]
+Write the equation in Proposition~\ref{prop:product-of-cosines} using $\Pi$ product notation.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[.75in]
+We have
+\[
+	\prod_{j = 1}^n \cos(2^{j - 1} x) = \frac{\sin(2^n x)}{2^n \sin(x)}.
+\]
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\part[5]
+Prove Proposition~\ref{prop:product-of-cosines} using mathematical induction.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[6.5in]
+\begin{proof}
+$P(n)$ is: $\displaystyle{\prod_{j = 1}^n \cos(2^{j - 1} x) = \frac{\sin(2^n x)}{2^n \sin(x)}}$, for all $n \in \Z^+$.
+
+\textbf{Basis}: If $n = 1$, then the LHS is $\cos(2^{1 - 1} x) = \cos(2^0 x) = \cos(x)$ and the RHS is
+\begin{align*}
+	\frac{\sin(2^1 x)}{2^1 \sin(x)} &= \frac{\cancel{2\sin(x)}\cos(x)}{\cancel{2\sin(x)}} \\
+	&= \cos(x).
+\end{align*}
+So, $P(1)$ is true.
+
+\textbf{Inductive step}: If $P(k)$ is true, then for all $k \in \Z^+$
+\[
+	\prod_{j = 1}^k \cos(2^{j - 1} x) = \frac{\sin(2^k x)}{2^k \sin(x)}.
+\]
+Now,
+\begin{align*}
+	\prod_{j = 1}^{k + 1} \cos(2^{j - 1} x) &= \left( \prod_{j = 1}^k \cos(2^{j - 1} x) \right) \times \cos(2^{(k + 1) - 1} x) \\
+	&= \frac{\sin(2^k x) \cos(2^k x)}{2^k \sin(x)} && (\textrm{by hypothesis}).
+\end{align*}
+Note that $\sin(\varphi)\cos(\varphi) = \frac{1}{2} \sin(2\varphi)$, so
+\begin{align*}
+	\prod_{j = 1}^{k + 1} \cos(2^{j - 1} x) &= \frac{\frac{1}{2} \sin(2 \times 2^k x)}{2^k \sin(x)} \\
+	&= \frac{\sin(2^{k + 1} x)}{2^{k + 1} \sin(x)}.
+\end{align*}
+Since $P(1)$ is true, and $P(k) \implies P(k + 1)$, by the PMI $P(n)$ is true for all $n \in \Z^+$.
+\end{proof}
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\end{parts}

@@ -1,0 +1,131 @@
+%%% Surplus questions
+
+%%% 2004 Exam, Q8,
+%%% 2006 Exam, Q9,
+
+\question[5]
+Prove by mathematical induction that $5^{2n} + 17 \times 7^n$ is divisible by $18$, for all positive integers $n$.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[6in]
+\begin{proof}
+$P(n)$ is: $18 \divides 5^{2n} + 17 \times 7^n$, for all $n \in \Z^+$.
+
+\textbf{Basis}: If $n = 1$, the LHS is $5^{2 \times 1} + 17 \times 7^1 = 25 + 17 \times 7 = 144$ and $18 \divides 144$. So, $P(1)$ is true.
+
+\textbf{Inductive step}: Suppose $P(k)$ is true. Then $5^{2k} + 17 \times 7^k = 18m$, for all $k \in \Z^+$ and some $m \in \Z$. Thus, $5^{2k} = 18m - 17 \times 7^k$. Now,
+\begin{align*}
+	5^{2(k + 1)} + 17 \times 7^{k + 1} &= 5^2 \times 5^{2k} + 17 \times (7 \times 7^k) \\
+	&= 5^2 \times (18m - 17 \times 7^k) + 7 \times (17 \times 7^k) && (\textrm{by hypothesis}) \\
+	&= 25 \times 18m - 17 \times 7^k(25 - 7) \\
+	&= 18(25m - 17 \times 7^k), 
+\end{align*}
+which is divisible by $18$. Since $P(1)$ is true and $P(k) \implies P(k + 1)$, by the PMI $P(n)$ is true for all $n \in \Z^+$.
+\end{proof}
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\threeast
+
+\uplevel{
+In the following three theorems, $X$ denotes the domain of a real-valued function and $x \in X$ is a point in the domain. The notation $f: X \to \R$ means ``$f$ is a function whose domain is $X$ and whose range is $\R$.''
+
+\begin{theorem}[Derivative of the identity function]
+\label{thm:derivative-of-the-identity-function}
+Let $X$ be a subset of $\R$ and let $f: X \to \R$ be the identity function defined as $f(x) = x$. Then $f'(x) = 1$.
+\end{theorem}
+
+\begin{theorem}[Product rule]
+\label{thm:product-rule}
+Let $X$ be a subset of $\R$, and let $f: X \to \R$ and $g: X \to \R$ be functions. Then $(fg)'(x) = f'(x)g(x) + f(x)g'(x)$.
+\end{theorem}
+
+\begin{theorem}[Power rule]
+\label{thm:power-rule}
+Let $n$ be a positive integer, let $X$ be a subset of $\R$ and let $f: X \to \R$ be the function defined as $f(x) = x^n$. Then $f'(x) = nx^{n - 1}$.
+\end{theorem}
+}
+
+\question[5]
+Prove Theorem~\ref{thm:power-rule} using mathematical induction. (\emph{Hint}: Use Theorems~\ref{thm:derivative-of-the-identity-function}~and~\ref{thm:product-rule}.)
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[4in]
+\begin{proof}
+$P(n)$ is: if $f(x) = x^n$, then $f'(x) = nx^{n - 1}$, for all $n \in \N_{> 0}$.
+
+\textbf{Basis}: If $n = 1$, then $f(x) = x^1 = x$ and $f'(x) = 1 \times x^{1 - 1} = x^0 = 1$. So, $P(1)$ is true.
+
+\textbf{Inductive step}: If $P(k)$ is true, then $f(x) = x^k$ and $f'(x) = kx^{k - 1}$ for all $k \geq 1$. Now, if $f(x) = x^{k + 1} = x^k \times x^1$, by the product rule
+\begin{align*}
+	f'(x) &= \left( \diff{}{x} x^k \right) \times x + x^k \times \diff{}{x} x && (\textrm{by Theorem~\ref{thm:product-rule}}) \\
+	&= kx^{k - 1} \times x + x^k \times 1 && (\textrm{by hypothesis and Theorem~\ref{thm:derivative-of-the-identity-function}}) \\
+	&= kx^k + x^k \\
+	&= (k + 1)x^k.
+\end{align*}
+Since $P(1)$ is true and $P(k) \implies P(k + 1)$, by the PMI if $f(x) = x^n$, then $f'(x) = nx^{n - 1}$, for all $n \in \Z^+$.
+\end{proof}
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\triast
+
+\uplevel{
+\begin{theorem}[Binomial theorem]
+\label{thm:binomial-theorem}
+Let $x$ and $y$ be real numbers, let $n$ be a positive integer and let $\binom{n}{j}$ be a binomial coefficient. Then
+\[
+	(x + y)^n = \sum_{j = 0}^n \binom{n}{j} x^{n - j} y^j.
+\]
+\end{theorem}
+
+\begin{theorem}[Pascal's rule]
+\label{thm:pascal's-rule}
+Let $n$ and $j$ be integers and let $\binom{n}{j}$ be a binomial coefficient. Then
+\[
+	\binom{n}{j - 1} + \binom{n}{j} = \binom{n + 1}{j}.
+\]
+\end{theorem}
+}
+
+\question[5]
+Prove Theorem~\ref{thm:binomial-theorem} by mathematical induction. (\emph{Hint}: use Theorem~\ref{thm:pascal's-rule}.)
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[5.5in]
+\begin{proof}
+$P(n)$ is: For all $n \in \Z^+$
+\[
+	(x + y)^n = \sum_{j = 0}^n \binom{n}{j} x^{n - j} y^j.
+\]
+
+\textbf{Basis}: If $n = 1$, then the LHS is $(x + y)^1 = x + y$ and the RHS is
+\[
+	\binom{1}{0} x^{1 - 0} y^0 + \binom{1}{1} x^{1 - 1} y^1  = x + y.
+\]
+So, $P(1)$ is true.
+
+\textbf{Inductive step}: If $P(k)$ is true, then for all integers $k \geq 1$
+\[
+	(x + y)^k = \sum_{j = 0}^k \binom{k}{j} x^{k - j} y^j.
+\]
+Now,
+\begin{align*}
+	(x + y)^{k + 1} &= (x + y)^k (x + y) \\
+	&= \left( \sum_{j = 0}^k \binom{k}{j} x^{k - j} y^j \right) (x + y) \\
+	\begin{split}
+	&= x \left[ \binom{k}{0} x^k y^0 + \binom{k}{1} x^{k - 1} y^1 + \binom{k}{2} x^{k - 2} y^2 + \cdots + \binom{k}{k} x^0 y^k \right] \\
+	&+ y \left[ \binom{k}{0} x^k y^0 + \binom{k}{1} x^{k - 1} y^1 + \binom{k}{2} x^{k - 2} y^2 + \cdots + \binom{k}{k} x^0 y^k \right] \\
+	\end{split} \\
+	\begin{split}
+	&= \left[ \binom{k}{0} x^{k + 1} y^0 + \binom{k}{1} x^k y^1 + \binom{k}{2} x^{k - 1} y^2 + \cdots + \binom{k}{k} x^1 y^k \right] \\
+	&+ \left[ \binom{k}{0} x^k y^1 + \binom{k}{1} x^{k - 1} y^2 + \binom{k}{2} x^{k - 2} y^3 + \cdots + \binom{k}{k} x^0 y^{k + 1} \right] \\
+	\end{split} \\
+	&= \binom{k}{0} x^{k + 1} y^0 + \left[ \binom{k}{0} + \binom{k}{1} \right] x^k y^1 + \left[ \binom{k}{1} + \binom{k}{2} \right] x^{k - 1} y^2 + \cdots + \binom{k}{k} x^0 y^{k + 1} \\
+	&= \binom{k + 1}{0} x^{k + 1} + \binom{k + 1}{1} x^{(k + 1) - 1} y + \binom{k + 1}{2} x^{(k + 1) - 2} y^2 + \cdots + \binom{k + 1}{k + 1} y^{k + 1} \\
+	&= \sum_{j = 0}^{k + 1} \binom{k + 1}{j} x^{(k + 1) - j} y^j.
+\end{align*}
+Since $P(1)$ is true and $P(k) \implies P(k + 1)$, by the PMI $P(n)$ is true for all $n \in \Z^+$.
+\end{proof}
+\end{solutionorgrid}
+\end{EnvFullwidth}

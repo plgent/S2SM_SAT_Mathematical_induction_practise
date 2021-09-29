@@ -1,0 +1,45 @@
+\question
+
+\begin{parts}
+
+\part[5]
+Prove by mathematical induction that $4^n + 2$ is divisible by $3$, for all positive integers $n$.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[5.5in]
+\begin{proof}
+$P(n)$ is: $3 \divides 4^n + 2$, for all $n \in \Z^+$.
+
+\textbf{Basis}: If $n = 1$, then $4^1 + 2 = 4 + 2 = 6$ and $3 \divides 6$. So, $P(1)$ is true.
+
+\textbf{Inductive step}: If $P(k)$ is true, then there exists some $m \in \Z$ such that $4^{k} + 2 = 3m$, for all $k \in \Z^+$. Now,
+\[
+	4^{k + 1} + 2 = 4^k \times 4^1 + 2.
+\]
+That is, $4^{k} = 3m - 2$, so
+\begin{align*}
+	4^{k + 1} + 2 &= 4(3m - 2) + 2 && (\textrm{by hypothesis}) \\
+	&= 12m - 6 \\
+	&= 3(4m - 2),
+\end{align*}
+which is divisible by $3$. Since $P(1)$ is true and $P(k) \implies P(k + 1)$, by the PMI $P(n)$ is true for all $n \in \Z^+$.
+\end{proof}
+\emph{Note}: divisibility notation isn't formally covered in this course. It is useful for getting a point across efficiently, though.
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\part[2]
+Hence, find the remainder when $2^{2022}$ is divided by $3$.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[2in]
+We have $2^{2022} = 2^{2 \times 1011} = 4^{1011} = 4^n$. Now,
+\begin{align*}
+    4^n + 2 &\equiv 0 \pmod{3} \\
+    4^n &\equiv 1 \pmod{3}.
+\end{align*}
+The remainder is $1$. \emph{Note}: modular arithmetic notation isn't formally covered in this course. It is useful for getting a point across efficiently, though.
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\end{parts}

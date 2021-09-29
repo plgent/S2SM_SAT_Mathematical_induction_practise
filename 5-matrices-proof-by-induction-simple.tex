@@ -1,0 +1,100 @@
+\question
+
+\begin{parts}
+
+\part[5]
+Prove Proposition~\ref{prop:lower-triangular-matrix-to-a-power} by mathematical induction.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[5.25in]
+\begin{proof}
+$P(n)$ is: if $\mat{M} = 
+\begin{pmatrix}
+	1 & 0 \\
+	2 & 1
+\end{pmatrix}
+$, then $\mat{M}^n = 
+\begin{pmatrix}
+	1 & 0 \\
+	2n & 1
+\end{pmatrix}
+$, for all $n \in \Z^+$.
+
+\textbf{Basis}: If $n = 1$, the LHS is $
+\begin{pmatrix}
+	1 & 0 \\
+	2 & 1
+\end{pmatrix}
+$ and the RHS is $
+\begin{pmatrix}
+	1 & 0 \\
+	2 \times 1 & 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+	1 & 0 \\
+	2 & 1
+\end{pmatrix}
+$. So, $P(1)$ is true.
+
+\textbf{Inductive step}: Suppose $P(k)$ is true. Then $\mat{M}^k = 
+\begin{pmatrix}
+	1 & 0 \\
+	2k & 1
+\end{pmatrix}
+$, for all $k \in \Z^+$. Now,
+\begin{align*}
+	\mat{M}^{k + 1} &= \mat{M}^k \mat{M}^1 \\
+	&=
+	\begin{pmatrix}
+		1 & 0 \\
+		2k & 1
+	\end{pmatrix}
+	\begin{pmatrix}
+		1 & 0 \\
+		2 & 1
+	\end{pmatrix} && (\textrm{by hypothesis})
+	\\
+	&=
+	\begin{pmatrix}
+		1 \times 1 + 0 \times 2 & 1 \times 0 + 0 \times 1 \\
+		2k \times 1 + 1 \times 2 & 2k \times 0 + 1 \times 1
+	\end{pmatrix} \\
+	&=
+	\begin{pmatrix}
+		1 & 0 \\
+		2(k + 1) & 1
+	\end{pmatrix}.
+\end{align*}
+Since $P(1)$ is true and $P(k) \implies P(k + 1)$, by the PMI $P(n)$ is true for all $n \in \Z^+$.
+\end{proof}
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\part[2]
+Hence, find $\mat{M}^{-1}\mat{M}^{2022}$.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[2in]
+Since
+\[
+    \mat{M}^{-1}\mat{M}^{2022} = (\mat{M}^{-1}\mat{M}^1)\mat{M}^{2021} = \mat{I}\mat{M}^{2021} = \mat{M}^{2021},
+\]
+by Proposition~\ref{prop:lower-triangular-matrix-to-a-power} there is
+\[
+    \mat{M}^{2021}
+    =
+    \begin{pmatrix}
+        1 & 0 \\
+        2021 \times 2 & 1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        1 & 0 \\
+        4042 & 1
+    \end{pmatrix}.
+\]
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\end{parts}

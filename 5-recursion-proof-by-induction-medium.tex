@@ -1,0 +1,88 @@
+\question % HL (Option) - Discrete Mathematics - First Edition, pg. 20.
+Let $a_0 = 1$ and let $\displaystyle{a_n = \pfrac{n}{n + 1} a_{n - 1}}$, for all positive integers $n$.
+
+\begin{parts}
+
+\part[2]
+Complete Table~\vref{tab:recursion-values}. (Use the space below for working.)
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[1.25in]
+We have
+\begin{align*}
+	a_0 &= 1, \\
+	a_1 &= \frac{1}{1 + 1} \times a_0 = \frac{1}{2} \times 1 = \frac{1}{2}, \\
+	a_2 &= \frac{2}{2 + 1} \times a_1 = \frac{2}{3} \times \frac{1}{2} = \frac{1}{3}, \\
+	a_3 &= \frac{3}{3 + 1} \times a_2 = \frac{3}{4} \times \frac{1}{3} = \frac{1}{4}.
+\end{align*}
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\begin{table}[h]
+	\centering
+	\caption{Fill in this table.}
+	\label{tab:recursion-values}
+	\begin{tabular}{cccc}
+	\toprule
+	\hspace{1.2em}$a_0$\hspace{1.2em} & \hspace{1.2em}$a_1$\hspace{1.2em} & \hspace{1.2em}$a_2$\hspace{1.2em} & \hspace{1.2em}$a_3$\hspace{1.2em} \\
+	\midrule
+	\ifprintanswers
+	$1$ & \color{red}$\displaystyle{\frac{1}{2}}$ & \color{red}$\displaystyle{\frac{1}{3}}$ & \color{red}$\displaystyle{\frac{1}{4}}$ \\
+	\else
+	\addlinespace
+	$1$ & & & \\
+	\addlinespace
+	\fi
+	\bottomrule
+	\end{tabular}
+\end{table}
+
+\part[1]
+Hence, conjecture a formula for $a_n$. 
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[.75in]
+\textbf{Conjecture}. The $n$th term is given by $\displaystyle{a_n = \frac{1}{n + 1}}$, for all $n \in \N$.
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\part[5]
+Prove your conjecture by mathematical induction.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[5in]
+\begin{proof}
+$P(n)$ is: $\displaystyle{a_n = \frac{1}{n + 1}}$, for all $n \in \N$.
+
+\textbf{Basis}: If $n = 0$, then
+\[
+	a_0 = \frac{1}{0 + 1} = 1.
+\]
+So, $P(0)$ is true.
+
+\textbf{Inductive step}: If $P(k)$ is true, then $\displaystyle{a_k = \frac{1}{k + 1}}$, for all $k \in \N$. Now,
+\begin{align*}
+	a_{k + 1} &= \pfrac{k + 1}{(k + 1) + 1} a_k \\
+	&= \frac{k + 1}{k + 2} \times \frac{1}{k + 1} && (\textrm{by hypothesis}) \\
+	&= \frac{1}{k + 2} \\
+	&= \frac{1}{(k + 1) + 1}.
+\end{align*}
+Since $P(0)$ is true and $P(k) \implies P(k + 1)$, by the PMI $\displaystyle{a_n = \frac{1}{n + 1}}$ for all $n \in \N$.
+\end{proof}
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\part[1]
+Hence, find $a_{100}$.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[1in]
+We have
+\begin{align*}
+	a_{100} &= \frac{1}{100 + 1} \\
+	&= \frac{1}{101}.
+\end{align*}
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\end{parts}

@@ -1,0 +1,139 @@
+\question
+Let $\mat{A} =
+\begin{pmatrix}
+	1 & 0 \\
+	5 & 1
+\end{pmatrix}$ be a matrix.
+
+\begin{parts}
+
+\part[2]
+Find $\mat{A}^2$ and $\mat{A}^3$.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[2in]
+We have
+\[
+    \mat{A}^2 = \mat{A}\mat{A} =
+    \begin{pmatrix}
+	    1 & 0 \\
+	    5 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+	    1 & 0 \\
+	    5 & 1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+	    1 & 0 \\
+	    10 & 1
+    \end{pmatrix}
+\]
+and
+\[
+    \mat{A}^3 = \mat{A}\mat{A}^2 =
+    \begin{pmatrix}
+	    1 & 0 \\
+	    5 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+	    1 & 0 \\
+	    10 & 1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+	    1 & 0 \\
+	    15 & 1
+    \end{pmatrix}.
+\]
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\part[1]
+Conjecture a value for $\mat{A}^n$ for all positive integers $n$.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[.75in]
+\textbf{Conjecture}. If $\mat{A} =
+\begin{pmatrix}
+	1 & 0 \\
+	5 & 1
+\end{pmatrix}$, then $\mat{A}^n =
+\begin{pmatrix}
+	1 & 0 \\
+	5n & 1
+\end{pmatrix}$, for all $n \in \Z^+$.
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\part[5]
+Prove your conjecture in part (b) by mathematical induction.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[5in]
+\begin{proof}
+$P(n)$ is: if $\mat{A} =
+\begin{pmatrix}
+	1 & 0 \\
+	5 & 1
+\end{pmatrix}
+$, then $\mat{A}^n =
+\begin{pmatrix}
+	1 & 0 \\
+	5n & 1
+\end{pmatrix}
+$, for all $n \in \Z^+$.
+
+\textbf{Basis}: If $n = 1$, then the LHS is $
+\begin{pmatrix}
+	1 & 0 \\
+	5 & 1
+\end{pmatrix},
+$
+and the RHS is $
+\begin{pmatrix}
+	1 & 0 \\
+	5 \times 1 & 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+	1 & 0 \\
+	5 & 1
+\end{pmatrix}
+$.
+So, $P(1)$ is true.
+
+\textbf{Inductive step}: If $P(k)$ is true, then $\mat{A}^k =
+\begin{pmatrix}
+	1 & 0 \\
+	5k & 1
+\end{pmatrix}
+$, for all $k \in \Z^+$. Now,
+\begin{align*}
+	\mat{A}^{k + 1} &= \mat{A}^k \mat{A}^1 \\
+	&=
+	\begin{pmatrix}
+		1 & 0 \\
+		5k & 1
+	\end{pmatrix}
+	\begin{pmatrix}
+		1 & 0 \\
+		5 & 1
+	\end{pmatrix} && (\textrm{by hypothesis}) \\
+	&=
+	\begin{pmatrix}
+		1 & 0 \\
+		5k + 5 & 1
+	\end{pmatrix} \\
+	&=
+	\begin{pmatrix}
+		1 & 0 \\
+		5(k + 1) & 1
+	\end{pmatrix}.
+\end{align*}
+Since $P(1)$ is true, and $P(k) \implies P(k + 1)$, by the PMI $P(n)$ is true for all $n \in \Z^+$.
+\end{proof}
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\end{parts}

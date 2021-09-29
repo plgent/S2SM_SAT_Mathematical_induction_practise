@@ -1,0 +1,38 @@
+\question % Proofs By Induction, Per Alexandersson, Q6b.
+
+\begin{parts}
+
+\part[5]
+Prove Proposition~\ref{prop:some-random-product} by mathematical induction.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[5.25in]
+\begin{proof}
+$P(n)$ is: $\displaystyle{\prod_{j = 1}^n \frac{j^2}{j + 1} = \frac{n!}{n + 1}}$, for all $n \in \Z^+$.
+
+\textbf{Basis}: If $n = 1$, then the LHS is $\displaystyle{\frac{1^2}{1 + 1} = \frac{1}{2}}$ and the RHS is $\displaystyle{\frac{1!}{1 + 1} = \frac{1}{2}}$. So, $P(1)$ is true.
+
+\textbf{Inductive step}: If $P(k)$ is true, then $\displaystyle{\prod_{j = 1}^k \frac{j^2}{j + 1} = \frac{k!}{k + 1}}$, for all $k \in \Z^+$. Now,
+\begin{align*}
+	\prod_{j = 1}^{k + 1} \frac{j^2}{j + 1} &= \left( \prod_{j = 1}^k \frac{j^2}{j + 1} \right) \times \frac{(k + 1)^2}{(k + 1) + 1} \\
+	&= \frac{k!}{\cancel{k + 1}} \times \frac{\cancel{(k + 1)}(k + 1)}{(k + 1) + 1} && (\textrm{by hypothesis}) \\
+	&= \frac{(k + 1)!}{(k + 1) + 1}.
+\end{align*}
+Since $P(1)$ is true and $P(k) \implies P(k + 1)$, by the PMI $P(n)$ is true for all $n \in \Z^+$.
+\end{proof}
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\part[2]
+Hence, find $\displaystyle{P = \frac{1}{2} \times \frac{4}{3} \times \cdots \times \frac{36}{7}}$.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[2in]
+Putting $n  = 6$ into the formula in Proposition~\ref{prop:some-random-product} yields
+\[
+    P = \frac{6!}{7} = \frac{720}{7}.
+\]
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\end{parts}

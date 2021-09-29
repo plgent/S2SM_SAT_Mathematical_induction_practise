@@ -1,0 +1,68 @@
+\question % 2016 Exam, Q8.
+
+\begin{parts}
+
+\part[2]
+Show that $\displaystyle{1 + \sin^2(x) = \frac{1 - \sin^4(x)}{\cos^2(x)}}$, for $\cos(x) \neq 0$.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[3.5in]
+The RHS is
+\begin{align*}
+	\frac{1 - \sin^4(x)}{\cos^2(x)} &= \frac{\cancel{(1 - \sin^2(x))}(1 + \sin^2(x))}{\cancel{1 - \sin^2(x)}} && (\textrm{difference of two squares}) \\
+	&= 1 + \sin^2(x),
+\end{align*}
+which is the LHS.
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\part[2]
+Hence, show that $\displaystyle{1 + \sin^2(x) + \sin^4(x) = \frac{1 - \sin^6(x)}{\cos^2(x)}}$. (\emph{Hint}: $cos^2(\varphi) + \sin^2(\varphi) = 1$.)
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[3.5in]
+The LHS is
+\begin{align*}
+	1 + \sin^2(x) + \sin^4(x) &= \frac{1 - \sin^4(x)}{\cos^2(x)} + \sin^4(x) && (\textrm{by (a)}) \\
+	&= \frac{1 - \sin^4(x)}{\cos^2(x)} + \frac{\sin^4(x)(1 - \sin^2(x))}{\cos^2(x)} \\
+	&= \frac{1 - \sin^6(x)}{\cos^2(x)}.
+\end{align*}
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\part[5]
+Prove Theorem~\ref{thm:trigonometric-induction-identity} using mathematical induction.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[6.5in]
+\begin{proof}
+$P(n)$ is: $\displaystyle{1 + \sin^2(x) + \sin^4(x) + \cdots + \sin^{2n}(x) = \frac{1 - \sin^{2(n + 1)}(x)}{\cos^2(x)}}$, for all $n \in \Z^+$.
+
+\textbf{Basis}: If $n = 1$, then the LHS is
+\[
+	1 + \sin^{2 \times 1}(x) = 1 + \sin^2(x),
+\]
+and by part (a), the RHS is
+\[
+	\frac{1 - \sin^{2(1 + 1)}(x)}{\cos^2(x)} = \frac{1 - \sin^4(x)}{\cos^2(x)} = 1 + \sin^2(x).
+\]
+So, $P(1)$ is true.
+
+\textbf{Inductive step}: If $P(k)$ is true, then for all $k \in \Z^+$
+\[
+	1 + \sin^2(x) + \sin^4(x) + \cdots + \sin^{2k}(x) = \frac{1 - \sin^{2(k + 1)}(x)}{\cos^2(x)}.
+\]
+Let $1 + \sin^2(x) + \sin^4(x) + \cdots + \sin^{2k}(x) = \sigma$. Then
+\begin{align*}
+	\sigma + \sin^{2(k + 1)}(x) &= \frac{1 - \sin^{2(k + 1)}(x)}{\cos^2(x)} + \sin^{2(k + 1)}(x) && (\textrm{by hypothesis}) \\
+	&= \frac{1 - \sin^{2(k + 1)}(x)}{\cos^2(x)} + \frac{\cos^2(x) \sin^{2(k + 1)}(x)}{\cos^2(x)} \\
+	&= \frac{1 - \sin^{2(k + 1)}(x)}{\cos^2(x)} + \frac{(1 - \sin^2(x)) \sin^{2(k + 1)}(x)}{\cos^2(x)} \\
+	&= \frac{1 - \sin^{2(k + 1)}(x) + \sin^{2(k + 1)}(x) - \sin^{2k + 4}(x)}{\cos^2(x)} \\
+	&= \frac{1 - \sin^{2((k + 1) + 1)}(x)}{\cos^2(x)}.
+\end{align*}
+Since $P(1)$ is true and $P(k) \implies P(k + 1)$, by the PMI $P(n)$ is true for all $n \in \Z^+$.
+\end{proof}
+\end{solutionorgrid}
+\end{EnvFullwidth}
+
+\end{parts}

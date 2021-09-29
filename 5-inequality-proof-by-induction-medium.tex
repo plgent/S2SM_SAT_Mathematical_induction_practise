@@ -1,0 +1,26 @@
+\question[5] % HL (Option) - Discrete Mathematics - First Edition, pg. 14.
+Prove by mathematical induction that $5^n \geq 8n^2 - 4n + 1$, for all positive integers $n$.
+
+\begin{EnvFullwidth}
+\begin{solutionorgrid}[6in]
+\begin{proof}
+$P(n)$ is: $5^n \geq 8n^2 - 4n + 1$, for all $n \in \Z^+$.
+
+\textbf{Basis}: If $n = 1$, then the LHS is $5^1 = 5$, the RHS is $8 \times 1^2 - 4 \times 1 + 1 = 5$ and $5 \geq 5$. So, $P(1)$ is true.
+
+\textbf{Inductive step}: If $P(k)$ is true, then $5^k \geq 8k^2 - 4k + 1$, for all $k \in \Z^+$. Now,
+\begin{align*}
+	5^{k + 1} - 8(k + 1)^2 + 4(k + 1) - 1 &= 5^k \times 5^1 - 8(k^2 + 2k + 1) + 4k + 4 - 1 \\
+	&= 5 \times 5^k - 8k^2 - 12k - 5.
+\end{align*}
+Now,
+\begin{align*}
+	5^{k + 1} - 8(k + 1)^2 + 4(k + 1) - 1 &\geq 5(8k^2 - 4k + 1) - 8k^2 - 12k - 5 && (\textrm{by hypothesis}) \\
+	&= 32k^2 - 32k \\
+	&= 32k(k - 1) \\
+	&\geq 0 && (k \geq 1).
+\end{align*}
+Since $P(1)$ is true, and $P(k) \implies P(k + 1)$, by the PMI $P(n)$ is true for all $n \in \Z^+$.
+\end{proof}
+\end{solutionorgrid}
+\end{EnvFullwidth}
